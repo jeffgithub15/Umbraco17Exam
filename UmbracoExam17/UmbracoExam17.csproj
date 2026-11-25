@@ -6,10 +6,6 @@
     <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="umbraco\Data\TEMP\InMemoryAuto\all.generated.cs" />
-    <Compile Include="umbraco\Data\TEMP\InMemoryAuto\models.generated.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="app_plugins\articledashboard\umbraco-package.json" />
     <Content Include="umbraco\Data\TEMP\MediaCache\3\0\8\4\0\8\0\d\a361.png" />
     <Content Include="umbraco\Data\TEMP\MediaCache\5\2\3\4\8\9\a\1\5f68.png" />
@@ -60,9 +56,6 @@
     <None Include="umbraco\Data\TEMP\ExamineIndexes\MembersIndex\segments.gen" />
     <None Include="umbraco\Data\TEMP\ExamineIndexes\MembersIndex\segments_9" />
     <None Include="umbraco\Data\TEMP\ExamineIndexes\MembersIndex\write.lock" />
-    <None Include="umbraco\Data\TEMP\InMemoryAuto\all.dll.path" />
-    <None Include="umbraco\Data\TEMP\InMemoryAuto\Compiled\generated.cs917b54d19e7bd99fedabd8788be29380af8ff87e.dll" />
-    <None Include="umbraco\Data\TEMP\InMemoryAuto\models.hash" />
     <None Include="umbraco\Data\TEMP\MainDom_92bd1ace032fe04980017909ed44c4b58624a373.lock" />
     <None Include="umbraco\Data\TEMP\MainDom_ab94a8821f7183d5fbccf12267a7093e8d8ace1a.lock" />
     <None Include="umbraco\Data\TEMP\MediaCache\3\0\8\4\0\8\0\d\a361.meta" />
