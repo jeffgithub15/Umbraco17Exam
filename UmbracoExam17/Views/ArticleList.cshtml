@@ -1,0 +1,145 @@
+﻿
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoExam17.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ArticleList>
+
+    @{
+    Layout = null;
+
+    var articles = Model.Children<Article>()
+                    .Where(x => x.IsPublished())
+                    .OrderByDescending(x => x.PublishDate);
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Model.Name</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+
+        .article-container {
+            max-width: 700px;
+            margin: 0 auto 10px;            
+            background-color: #f1f1f1;
+            border-radius: 9px;
+            padding: 14px 11px;            
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .article-label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .typed-badge {
+            background-color: #c9f0d9;
+            color: #16834b;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .article-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 14px;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .reading-time {
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .article-content {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+
+    <h1 class="article-container">Articles</h1>
+    @if (articles.Any())
+    {
+        @foreach (var article in articles)
+        {
+            <div class="article-container">
+
+                @* <div class="article-header">
+                    <span class="article-label">Article detail</span>
+                </div> *@
+
+                <h2 class="article-title">
+                     <a href="@article.Url()">
+                        @article.Title
+                    </a>
+                </h2>
+
+                <div class="article-meta">
+                    Published:  @article.PublishDate.ToString("MMMM dd, yyyy")
+                </div>
+
+              @*   <div class="reading-time">
+                    Estimated reading time: 5 min read
+                </div> *@
+
+                <p class="article-content">
+                   @*  Article content appears here... *@
+
+                    Intro: @article.Intro
+                </p>
+
+            </div>
+
+
+           @*  <article>
+                <h2>
+                    <a href="@article.Url()">
+                        @article.Title
+                    </a>
+                </h2>
+
+                <p>@article.Intro</p>
+
+                <small>
+                    @article.PublishDate.ToString("MMMM dd, yyyy")
+                </small>
+            </article> *@
+        }
+    }
+    else
+    {
+        <p>No articles available.</p>
+    }    
+
+</body>
+</html>
+
+                    

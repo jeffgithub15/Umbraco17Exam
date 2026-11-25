@@ -1,0 +1,24 @@
+{
+  "name": "Article Dashboard",
+  "version": "1.0.0",
+  "extensions": [
+    {
+      "type": "dashboard",
+      "alias": "UmbracoExam17.ArticleDashboard",
+      "name": "Article Dashboard",
+      "js": "/App_Plugins/ArticleDashboard/dashboard.element.js",
+      "elementName": "article-dashboard",
+      "weight": 10,
+      "meta": {
+        "label": "Article Dashboard",
+        "pathname": "article-dashboard"
+      },
+      "conditions": [
+        {
+          "alias": "Umb.Condition.SectionAlias",
+          "match": "Umb.Section.Content"
+        }
+      ]
+    }
+  ]
+}

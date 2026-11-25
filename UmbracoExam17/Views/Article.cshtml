@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@using UmbracoExam17.Domain.Services
+@using Umbraco.Extensions
+@using UmbracoExam17.Models;
+@inject IReadingTimeService ReadingTimeService
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Article>
+
+@{
+    Layout = null;
+
+    var bodyText = Model.Body?.ToString() ?? "";
+
+    var readingTime = ReadingTimeService.CalculateReadingTime(bodyText);
+
+    var heroImage = Model.HeroImage;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Model.Title</title>
+</head>
+<body>
+    <a href="@Model.Parent?.Url()">Back to Articles</a>
+    <article>
+
+        <h1>@Model.Title</h1>
+
+        <p>@Model.Intro</p>
+
+        <p>
+            Published: @Model.PublishDate.ToString("MMMM dd, yyyy")
+        </p>
+
+        <p>
+            Approximately @readingTime min read
+        </p>
+
+        @if (heroImage != null)
+        {
+            <img
+                src="@heroImage.Url()"
+                alt="@Model.Title"
+                style="max-width: 100%; height: auto;"
+            />
+        }
+        
+         <div>
+            @Html.Raw(Model.Body)
+        </div>
+
+    </article>
+
+    <hr />
+
+@await Html.PartialAsync("Partials/Newsletter/NewsletterForm", new UmbracoExam17.ViewModels.NewsletterViewModel())
+
+</body>
+</html>
+

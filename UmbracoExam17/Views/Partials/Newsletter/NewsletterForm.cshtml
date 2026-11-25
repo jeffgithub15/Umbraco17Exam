@@ -1,0 +1,50 @@
+﻿@using UmbracoExam17.ViewModels
+@using UmbracoExam17.Controllers
+
+@model NewsletterViewModel
+
+<div class="newsletter-container">
+
+    <h2>Subscribe to our Newsletter</h2>
+
+    <p>
+        Get the latest articles and updates delivered
+        directly to your inbox.
+    </p>
+
+    @if (TempData["NewsletterSuccess"] != null)
+    {
+        <div class="success-message">
+            @TempData["NewsletterSuccess"]
+        </div>
+    }
+
+    @using (Html.BeginUmbracoForm<NewsletterSurfaceController>(
+        nameof(NewsletterSurfaceController.Subscribe)))
+    {
+        <div class="newsletter-form">
+
+            <label for="Email">Email Address</label>
+
+            @Html.TextBoxFor(
+                m => m.Email,
+                new
+                {
+                    type = "email",
+                    placeholder = "Enter your email address",
+                    @class = "newsletter-input"
+                })
+
+            @Html.ValidationMessageFor(
+                m => m.Email,
+                "",
+                new { @class = "error-message" })
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </div>
+    }
+
+</div>

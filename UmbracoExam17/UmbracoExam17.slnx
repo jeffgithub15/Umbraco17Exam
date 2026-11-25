@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../UmbracoExam17.Domain/UmbracoExam17.Domain.csproj" Id="3698b32d-2bc1-4234-a60b-864de425cfba" />
+  <Project Path="../UmbracoExam17.Tests/UmbracoExam17.Tests.csproj" Id="8b6546dd-5ca6-496b-a697-4da62364948e" />
+  <Project Path="UmbracoExam17.csproj" />
+</Solution>
